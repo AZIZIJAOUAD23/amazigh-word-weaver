@@ -3,18 +3,16 @@ export interface DictionaryEntry {
   id: string;
   amazigh: string;
   latin?: string;
-  type?: string;
+  category?: string;
   source?: string;
+  construct?: string;
   plural?: string;
-  singular?: string;
   french?: string;
   arabic?: string;
+  mean_ar?: string;
   example?: {
     amazigh?: string;
     french?: string;
     arabic?: string;
   };
-  variants?: string[];
-  detailed_arabic?: string;
 }
-
