@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -157,7 +156,7 @@ const Dictionary = () => {
           </div>
         ) : (
           <div className="text-center py-12 animate-fade-in">
-            <p className="text-gray-600">ابدأ البحث باستخدام شريط البحث أعلاه.</p>
+            <p className="text-gray-600">القاموس فارغ حالياً. يرجى إضافة كلمات جديدة.</p>
           </div>
         )}
       </div>
