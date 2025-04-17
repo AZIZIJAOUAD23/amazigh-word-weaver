@@ -183,8 +183,8 @@ const Translator = () => {
                         </div>
                         
                         <div className="p-4">
-                          {result.type && (
-                            <div className="text-sm text-amazigh-secondary mb-2 italic">{result.type}</div>
+                          {(result.type || result.category) && (
+                            <div className="text-sm text-amazigh-secondary mb-2 italic">{result.type || result.category}</div>
                           )}
                           
                           {result.french && (

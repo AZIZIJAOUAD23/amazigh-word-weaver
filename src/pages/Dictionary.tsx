@@ -68,9 +68,9 @@ const Dictionary = () => {
               <div key={index} className="word-card">
                 <div className="flex justify-between items-center mb-3">
                   <div className="amazigh-text">{entry.amazigh}</div>
-                  {entry.type && (
+                  {(entry.type || entry.category) && (
                     <span className="text-xs px-2 py-1 bg-amazigh-light text-amazigh-primary rounded-full">
-                      {entry.type}
+                      {entry.type || entry.category}
                     </span>
                   )}
                 </div>

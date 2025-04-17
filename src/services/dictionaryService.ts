@@ -1,8 +1,9 @@
+
 export interface DictionaryEntry {
   id: string;
   amazigh: string;
   latin?: string;
-  type?: string;
+  type?: string;  // Added back the type property
   source?: string;
   plural?: string;
   singular?: string;
@@ -15,6 +16,9 @@ export interface DictionaryEntry {
   };
   variants?: string[];
   detailed_arabic?: string;
+  category?: string;  // Added to support the data format
+  construct?: string; // Added to support the data format
+  mean_ar?: string;   // Added to support the data format
 }
 
 // This is our dictionary based on the provided data
@@ -359,8 +363,11 @@ export const searchDictionary = (query: string): DictionaryEntry[] => {
     if (entry.arabic && entry.arabic.toLowerCase().includes(normalizedQuery)) {
       return true;
     }
-    // Check in type
+    // Check in type or category
     if (entry.type && entry.type.toLowerCase().includes(normalizedQuery)) {
+      return true;
+    }
+    if (entry.category && entry.category.toLowerCase().includes(normalizedQuery)) {
       return true;
     }
     return false;
