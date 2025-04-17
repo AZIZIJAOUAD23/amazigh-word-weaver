@@ -3,217 +3,30 @@ export interface DictionaryEntry {
   id: string;
   amazigh: string;
   latin?: string;
-  type?: string;  // Added back the type property
+  type?: string;
+  category?: string;
   source?: string;
+  construct?: string;
   plural?: string;
-  singular?: string;
   french?: string;
   arabic?: string;
+  mean_ar?: string;
+  detailed_arabic?: string;
+  variants?: string[];
   example?: {
     amazigh?: string;
     french?: string;
     arabic?: string;
   };
-  variants?: string[];
-  detailed_arabic?: string;
-  category?: string;  // Added to support the data format
-  construct?: string; // Added to support the data format
-  mean_ar?: string;   // Added to support the data format
 }
 
 // This is our dictionary based on the provided data
 const dictionaryData: DictionaryEntry[] = [
+  // Original entries
   {
     id: "1",
     amazigh: "ⴰ",
-    latin: "a",
-    type: "vocatif",
-    source: "Msmun, Tawalt"
-  },
-  {
-    id: "2",
-    amazigh: "ⴰ!",
-    latin: "a!",
-    source: "Tawalt"
-  },
-  {
-    id: "3",
-    amazigh: "ⴰⴱⴰⵢ !",
-    latin: "abay !",
-    source: "Tawalt",
-    french: "ô ma mère !",
-    arabic: "يا أمي!"
-  },
-  {
-    id: "4",
-    amazigh: "ⴰⴱⵏⴰⵢ !",
-    latin: "abnay !",
-    source: "Tawalt"
-  },
-  {
-    id: "5",
-    amazigh: "ⴰⴳⵉⵏ",
-    latin: "a gin",
-    source: "Tawalt"
-  },
-  {
-    id: "6",
-    amazigh: "ⴰⵎⵜⴰⵢ !",
-    latin: "amtay !",
-    source: "Tawalt"
-  },
-  {
-    id: "7",
-    amazigh: "ⴰⴱ ⴰⴽⴽ",
-    latin: "ab akk",
-    type: "démonstratif",
-    source: "IRCAM, Tawalt",
-    french: "ce, cet, cette",
-    arabic: "هذا، هذه، هؤلاء، أداة الإشارة للقريب"
-  },
-  {
-    id: "8",
-    amazigh: "ⴰⴱⴰ",
-    latin: "aba",
-    type: "nom masculin",
-    source: "IRCAM, Msmun, Tawalt",
-    french: "beau-père (m)",
-    arabic: "زوج الأم، راب",
-    detailed_arabic: "الزَّوْجُ، زَوْجُ الأُمِّ",
-    variants: ["ⵓⴱⴰⴱⴰ / ubaba", "ⴰⴱⴰⵜⵏ / abatn", "ⵓⴱⴰ / waba"]
-  },
-  {
-    id: "9",
-    amazigh: "ⴰⴱⴰⴱⴰⵃ",
-    latin: "ababah",
-    source: "Tawalt",
-    french: "Absenter(S'), Hémeralopie, Manquer",
-    arabic: "النَّأْيُ، التَّبَاعُد، يَضْعُفُ بَصَرُها",
-    detailed_arabic: "النَّأْيُ، التَّبَاعُد، يَضْعُفُ بَصَرُها، الوَشْمَة، الوَسْمَة، نَبَاتٌ يَضَعُفُ بَصَرُه"
-  },
-  {
-    id: "10",
-    amazigh: "ⴰⴱⴰⴱⴱⴰ",
-    latin: "ubabba/ubabbu",
-    type: "nom masculin",
-    source: "IRCAM, Msmun, Tawalt",
-    variants: ["ⵉⴱⴰⴱⴱⵓ / ibabbu"]
-  },
-  {
-    id: "11",
-    amazigh: "ⴰⴱⴰⴳⴳⵓ",
-    latin: "abaggu",
-    source: "Tawalt",
-    french: "Cousin",
-    arabic: "ابْنُ الخَالِ، ابْنُ العَمَّة",
-    variants: ["ⴰⴱⴰⴳⵓ / abagu", "ⴰⴱⴰⴳⵓⴳ / abagug"]
-  },
-  {
-    id: "12",
-    amazigh: "ⴰⴱⴰⴳⵓⵙ",
-    latin: "abagus",
-    type: "nom masculin",
-    source: "IRCAM, Msmun, Tawalt",
-    french: "fait de porter, fait de support, mamelle",
-    arabic: "حَمَلَ عَلَى الظَّهْرِ، تَحَمَّلَ، ضِرْعٌ",
-    detailed_arabic: "الحَمْلُ، قُدْرَةُ حَمْلٍ، البِزَالَة، الصَّغِيرَةُ، الذِّرْعُ، البِقْلِيَّةُ، الحَبَّةُ",
-    variants: ["ⵉⴱⴰⴳⵓⵙⵏ / ibagusn", "ⵓⴱⴰⴳⵓⵙ / ubagus"]
-  },
-  {
-    id: "13",
-    amazigh: "ⴰⴱⴰⴷ",
-    type: "nom masculin",
-    source: "IRCAM (DGLAi)",
-    singular: "ⵓⴱⴰⴷ",
-    plural: "ⵉⴱⴰⴷⴰⵜⵏ",
-    french: "Avant-bras, Bassin, Genou, Agneau, ceinture, tour, Ceinture, Ceinturon",
-    arabic: "ذِرَاعٌ, زَنْدٌ, إِلْيَةٌ, رُكْبَةٌ, حَمَلٌ, حِزَامٌ, شَاشٌ, مِشَدٌّ",
-    detailed_arabic: "الذراع، الحُزْمَة، الخَرِيطَةُ, الحِزَامُ، الجِرَابُ، المِحْزَمُ, الشَّاشُ، الشَّلَاطَةُ الوَثِيقَةُ يُعْتَمُّ بِهَا، المِشَدُّ، الجَمَاعَةُ",
-    variants: ["ⵉⴱⴰⴷⴰⵜⵏ / ibadatn", "ⵓⴱⴰⴷ / ubad"]
-  },
-  {
-    id: "14",
-    amazigh: "ⴰⴱⴰⴷⴰⵔ",
-    source: "Tawalt",
-    french: "Serment, piémont",
-    arabic: "أَسْفَلُ الجَبَلِ, سَفْحٌ, سَهْلٌ, صَوْحٌ, كَبْحٌ, شَلَلٌ, وَقْحٌ",
-    detailed_arabic: "القَسَمُ، اليَمِينُ, سَفْحُ الجَبَلِ، أَصْلُهُ وَأَسْفَلُهُ, السَّهْلُ، الوَاقِعُ عِنْدَ سُفُوحِ السَّلَاسِلِ الجَبَلِيَّةِ, الصَّوْحُ، أَسْفَلُ الجَبَلِ, الكَبْحُ، الكَاحُ، سَطْحُ الجَبَلِ, الشَّلَلُ، في الرِّجْلِ, الوَقْحُ، الوَقَاحُ، الوَقِيحُ، الوَجْهُ"
-  },
-  {
-    id: "15",
-    amazigh: "ⴰⴱⴰⴷⴰⵡⵉ",
-    source: "Tawalt",
-    french: "Talus, Bédouin",
-    arabic: "رَفْسَةٌ, كُسْكُس",
-    detailed_arabic: "الرَّفْسَةُ، الصَّدْمَةُ بِالرِّجْلِ, الكُسْكُس، الطَّعَامُ الأَمَازِيغِيُّ المَعْرُوفُ"
-  },
-  {
-    id: "16",
-    amazigh: "ⴰⴱⴰⴷⴷⴰⵔ (1)",
-    source: "Tawalt",
-    french: "Arsenal, jamais",
-    arabic: "أبَدًا, انْتِصَابٌ, قِيَامٌ, وُقُوفٌ",
-    detailed_arabic: "الانْتِصَابُ, القِيَامُ، الوُقُوفُ, الوُقُوفُ"
-  },
-  {
-    id: "17",
-    amazigh: "ⴰⴱⴰⴷⴷⴰⵙ",
-    type: "nom masculin",
-    source: "IRCAM, Msmun, Tawalt",
-    french: "fusil à poudre, pied d'une pe..., mur d'une clôt..., petite colline",
-    arabic: "بُنْدُقِيَّةٌ تَقْلِيدِيَّةٌ, رَشَّاشٌ, بَادِنٌ, أَسْفَلُ مُنْحَدَرٍ, حَائِطُ سِيَاجٍ, هَضْبَةٌ صَغِيرَةٌ",
-    detailed_arabic: "البُنْدُقِيَّةُ الحَرْبِيَّةُ, الرَّشَّاشُ، الرَّشِيشَةُ، المِطْحَنِيَّاتُ, البَادِنُ، البَدِينُ, أَسْفَلُ مُنْحَدَرٍ, هَضْبَةٌ صَغِيرَةٌ, أَطْرَاقُ البَطْنِ مَا فِيهِ مِن أَمْعَاءٍ, الكَمْءُ، أَي الِارْتِفَاعُ العَارِضُ فِي أَرْضٍ مُسْتَوِيَةٍ, التَّلُّ, التَّلْعَةُ، مَا ارْتَفَعَ مِن الأَرْضِ عَلَى جَانِبِ النَّهْرِ أَو الطَّرِيقِ..., الثَّنْيُ، فِي عَرْضِ الأَرْضِ المُسْتَوِيَةِ أَو فِي عَرْضِ الجَبَلِ, الثَّنْيَةُ، فِي الأَرْضِ، فِي مُدَاوَلَتِهَا الجُغْرَافِيِّ, النَّشَازُ، المَكَانُ النَّاشِزُ المُرْتَفِعُ, النَّشْرُ، النَّشَزُ، مِنَ الأَرْضِ",
-    variants: ["ⵉⴱⵓⴷⴷⴰⵙ / ibuddas", "ⵓⵜⴱⵓⴷⴷⴰⵙ / utbuddas"]
-  },
-  {
-    id: "18",
-    amazigh: "ⴰⴱⴰⴷⴷⴰⵔ (2)",
-    type: "nom",
-    source: "Msmun, Tawalt",
-    french: "Debout, grosse galette",
-    arabic: "بُكْلَةٌ, مَوَرَةٌ, رَغِيفٌ كَبِيرٌ, قُرْصٌ",
-    detailed_arabic: "البُكْلَةُ، سَمَكٌ, المَوَرَةُ، سَمَكٌ, القُرْصُ العَظِيمُ، مِن الخُبْزِ",
-    variants: ["ⵉⴱⵓⴷⴷⴰⵔ / ibuddar", "ⵓⴱⵓⴷⴷⴰⵔ / ubuddar"]
-  },
-  {
-    id: "19",
-    amazigh: "ⴰⴱⴰⴷⵉⴷ",
-    source: "Tawalt",
-    french: "Bétel, Basse-cour, Jucher",
-    arabic: "(غير واضحة/مقطوعة)"
-  },
-  {
-    id: "20",
-    amazigh: "ⴰⴱⴰⴷⵉⵔ",
-    type: "nom masculin",
-    source: "IRCAM, Msmun, Tawalt",
-    french: "jamais, Invisibles, talus, élévatio...",
-    arabic: "أَبَدًا, مَرْتَفَعُ أَرْضٍ، عَتَبَةٌ",
-    detailed_arabic: "أَبَدًا",
-    variants: ["ⵉⴱⵓⴷⴰⵔ / ibudar", "ⵓⴱⵓⴷⴰⵔ / ubudar"]
-  },
-  {
-    id: "21",
-    amazigh: "ⴰⴱⴰⴷⵉⵡ",
-    source: "Tawalt"
-  },
-  {
-    id: "22",
-    amazigh: "ⴰⴱⴰⴷⵏⵉ",
-    type: "adverbe",
-    source: "IRCAM, Tawalt"
-  },
-  {
-    id: "23",
-    amazigh: "ⴰⴱⴰⴷⵏⴰ",
-    type: "nom masculin",
-    source: "IRCAM",
-    variants: ["ⵉⴱⴰⴷⵏⴰ...? / ibadna...?", "ⵓⴱⴰⴷⵏⴰ / ubadna"]
-  },
-  {
-    id: "1",
-    amazigh: "ⴰ",
-    type: "vocatif",
+    category: "vocatif",
     source: "IRCAM (DGLAi)",
     french: "vocatif",
     arabic: "حرف نداء",
@@ -226,7 +39,7 @@ const dictionaryData: DictionaryEntry[] = [
   {
     id: "2",
     amazigh: "ⴰ",
-    type: "préposition",
+    category: "préposition",
     source: "Msmun",
     french: "vocatif",
     arabic: "حرف نداء",
@@ -234,7 +47,7 @@ const dictionaryData: DictionaryEntry[] = [
   {
     id: "3",
     amazigh: "ⴰ",
-    type: "vocatif",
+    category: "vocatif",
     source: "Msmun",
     french: "ce, cet, cette, ces",
     arabic: "أداة الإشارة للقرب : هذا، هذه، هؤلاء",
@@ -290,15 +103,36 @@ const dictionaryData: DictionaryEntry[] = [
   },
   {
     id: "11",
+    amazigh: "ⴰ ⴱⵏⴰⵢ !",
+    latin: "a bnay !",
+    source: "Tawalt (French)",
+    french: "Vous !",
+  },
+  {
+    id: "12",
     amazigh: "ⴰ ⴳⵉⵏ",
     latin: "a gin",
     source: "Tawalt (French)",
     french: "Donc",
   },
   {
-    id: "12",
+    id: "13",
+    amazigh: "ⴰ ⵎⵜⴰⵢ !",
+    latin: "a mtay !",
+    source: "Tawalt (French)",
+    french: "Ô vous !",
+  },
+  {
+    id: "14",
+    amazigh: "ⴰ ⵎⵜⴰⵢ !",
+    latin: "a mtay !",
+    source: "Tawalt (French)",
+    french: "Vous !",
+  },
+  {
+    id: "15",
     amazigh: "ⴰ/ⴰⴷ",
-    type: "démonstratif",
+    category: "démonstratif",
     source: "IRCAM (DGLAi)",
     french: "ce, cet, cette, ces",
     arabic: "هذا، هذه، هؤلاء",
@@ -309,35 +143,264 @@ const dictionaryData: DictionaryEntry[] = [
     },
   },
   {
-    id: "13",
+    id: "16",
+    amazigh: "ⴰⴱ ⴰⴽⴽ",
+    latin: "ab akk",
+    source: "Tawalt (French)",
+    french: "Afin que",
+  },
+  {
+    id: "17",
+    amazigh: "ⴰⴱ ⴰⴽⴽ",
+    latin: "ab akk",
+    source: "Tawalt (French)",
+    french: "Pour que",
+  },
+  {
+    id: "18",
     amazigh: "ⴰⴱⴰ",
-    type: "nom masculin",
+    category: "nom masculin",
     source: "IRCAM (DGLAi)",
-    singular: "ⵡⴰⴱⴰ",
+    construct: "ⵡⴰⴱⴰ",
     plural: "ⴰⴱⴰⵜⵏ",
     french: "beau-père (mari de la mère)",
     arabic: "زوج الأم",
   },
   {
-    id: "14",
-    amazigh: "ⴰⴱⴰⴷⴰ",
-    type: "nom masculin",
-    source: "IRCAM (DGLAi)",
-    singular: "ⵓⴱⴰⴷⴰ",
-    plural: "ⵉⴱⴰⴷⴰⵜⵏ",
-    french: "piémont",
-    arabic: "أسفل الجبل",
+    id: "19",
+    amazigh: "ⴰⴱⴰ",
+    category: "nom",
+    source: "Msmun",
+    construct: "ⴰⴱⴰⵜⵏ / abatn",
+    plural: "ⵡⴰⴱⴰ / waba",
+    french: "beau-père (mari de la mère)",
+    arabic: "زوج الأم",
   },
   {
-    id: "15",
-    amazigh: "ⴰⴱⴰⴷⵓ",
-    type: "nom masculin",
-    source: "IRCAM (DGLAi)",
-    singular: "ⵓⴱⴰⴷⵓ",
-    plural: "ⵉⴱⵓⴷⴰ",
-    french: "talus, élévation de terre ; falaise, seuil, pas de porte, bordure, canal d'irrigation",
-    arabic: "مرتفع أرضي, عتبة الباب, حدٌّ, قناة السقي",
+    id: "20",
+    amazigh: "ⴰⴱⴰ",
+    source: "Tawalt (Arabic)",
+    arabic: "راب",
+    mean_ar: "الرَّابُّ، زَوْجُ الأم",
   },
+  {
+    id: "21",
+    amazigh: "ⴰⴱⴰ",
+    latin: "aba",
+    source: "Tawalt (French)",
+    french: "absenter(S')",
+  },
+  {
+    id: "22",
+    amazigh: "ⴰⴱⴰ",
+    latin: "aba",
+    source: "Tawalt (French)",
+    french: "Héméralopie",
+  },
+  {
+    id: "23",
+    amazigh: "ⴰⴱⴰ",
+    latin: "aba",
+    source: "Tawalt (French)",
+    french: "Manquer",
+  },
+  {
+    id: "24",
+    amazigh: "ⴰⴱⴰⴱⴰ",
+    source: "Tawalt (Arabic)",
+    arabic: "نيل",
+    mean_ar: "النِّيلُ، النِّيلَةُ، يُصْبَغُ بها",
+  },
+  {
+    id: "25",
+    amazigh: "ⴰⴱⴰⴱⴰ",
+    source: "Tawalt (Arabic)",
+    arabic: "وسمة",
+    mean_ar: "الوَسْمَةُ، الوَسَمَةُ، نَبَاتٌ يُصْبَغُ بِوَرَقِهِ",
+  },
+  {
+    id: "26",
+    amazigh: "ⴰⴱⴰⴱⴰⵀ",
+    latin: "ababah",
+    source: "Tawalt (French)",
+    french: "Cousin",
+  },
+  {
+    id: "27",
+    amazigh: "ⴰⴱⴰⴱⴰⵣ",
+    source: "Tawalt (Arabic)",
+    arabic: "اِبْنُ",
+    mean_ar: "اِبْنُ الخَالِ",
+  },
+  {
+    id: "28",
+    amazigh: "ⴰⴱⴰⴱⴰⵣ",
+    source: "Tawalt (Arabic)",
+    arabic: "عم",
+    mean_ar: "اِبْنُ العَمَّةِ",
+  },
+  {
+    id: "29",
+    amazigh: "ⴰⴱⴰⴱⴱ",
+    source: "Tawalt (Arabic)",
+    arabic: "حمل",
+    mean_ar: "الحَمْلُ، مَصْدَرُ حَمَلَ",
+  },
+  // Add other entries from the data set
+  {
+    id: "30",
+    amazigh: "ⴰⴱⴰⴱⴱⴰ",
+    category: "nom masculin",
+    source: "IRCAM (DGLAi)",
+    construct: "ⵓⴱⴰⴱⴱⴰ",
+    french: "fait de porter sur le dos, fait de supporter",
+    arabic: "حَمْل على الظهر, تحمُّل",
+  },
+  {
+    id: "31",
+    amazigh: "ⴰⴱⴰⴱⴱⴰ",
+    category: "nom",
+    source: "Msmun",
+    plural: "ⵓⴱⴰⴱⴱⴰ / ubabba",
+    french: "fait de supporter",
+    arabic: "تحمُّل",
+  },
+  {
+    id: "32",
+    amazigh: "ⴰⴱⴰⴱⴱⴰ",
+    category: "nom",
+    source: "Msmun",
+    plural: "ⵓⴱⴰⴱⴱⴰ / ubabba",
+    french: "fait de porter sur le dos",
+    arabic: "حِمْل على الظهر",
+  },
+  {
+    id: "33",
+    amazigh: "ⴰⴱⴰⴱⴱⵓ",
+    category: "nom masculin",
+    source: "IRCAM (DGLAi)",
+    construct: "ⵓⴱⴰⴱⴱⵓ",
+    plural: "ⵉⴱⵓⴱⴱⴰ",
+    french: "mamelle",
+    arabic: "ضِرْع",
+  },
+  {
+    id: "34",
+    amazigh: "ⴰⴱⴰⴱⴱⵓ",
+    category: "nom",
+    source: "Msmun",
+    construct: "ⵉⴱⵓⴱⴱⴰ / ibubba",
+    plural: "ⵓⴱⴰⴱⴱⵓ / ubabbu",
+    french: "mamelle",
+    arabic: "ضِرْع",
+  },
+  {
+    id: "35",
+    amazigh: "ⴰⴱⴰⴱⴱⵓⵛ",
+    source: "Tawalt (Arabic)",
+    arabic: "بزاقة",
+    mean_ar: "البزاقة، الصغيرة",
+  },
+  {
+    id: "36",
+    amazigh: "ⴰⴱⴰⴱⵓ",
+    source: "Tawalt (Arabic)",
+    arabic: "ذرة",
+    mean_ar: "الذَّرَةُ، البَعْليَّةُ الدَّقِيقَةُ الحبِّ",
+  },
+  {
+    id: "37",
+    amazigh: "ⴰⴱⴰⴳⴳ",
+    latin: "abagg",
+    source: "Tawalt (French)",
+    french: "Avant-bras",
+  },
+  {
+    id: "38",
+    amazigh: "ⴰⴱⴰⴳⵓ",
+    latin: "abagu",
+    source: "Tawalt (French)",
+    french: "Bassin",
+  },
+  {
+    id: "39",
+    amazigh: "ⴰⴱⴰⴳⵓ",
+    latin: "abagu",
+    source: "Tawalt (French)",
+    french: "Genou",
+  },
+  {
+    id: "40",
+    amazigh: "ⴰⴱⴰⴳⵓⴳ",
+    latin: "abagug",
+    source: "Tawalt (French)",
+    french: "Agneau",
+  },
+  {
+    id: "41",
+    amazigh: "ⴰⴱⴰⴷⵉⴷ",
+    latin: "abadid",
+    source: "Tawalt (French)",
+    french: "Debout",
+  },
+  {
+    id: "42",
+    amazigh: "ⴰⴱⴰⴷⵉⵔ",
+    latin: "abadir",
+    source: "Tawalt (French)",
+    french: "Bétel",
+  },
+  {
+    id: "43",
+    amazigh: "ⴰⴱⴰⴷⵉⵡ",
+    latin: "abadiw",
+    source: "Tawalt (French)",
+    french: "Basse-cour",
+  },
+  {
+    id: "44",
+    amazigh: "ⴰⴱⴰⴷⵉⵡ",
+    latin: "abadiw",
+    source: "Tawalt (French)",
+    french: "Jucher",
+  },
+  {
+    id: "45",
+    amazigh: "ⴰⴱⴰⴷⵏ",
+    category: "adverbe",
+    source: "IRCAM (DGLAi)",
+    french: "jamais",
+    arabic: "أبدا",
+  },
+  {
+    id: "46",
+    amazigh: "ⴰⴱⴰⴷⵏⵉ",
+    latin: "abadni",
+    source: "Tawalt (French)",
+    french: "Invisibles",
+  },
+  {
+    id: "47",
+    amazigh: "ⴰⴱⴰⴷⴰⵔ",
+    latin: "abadar",
+    source: "Tawalt (French)",
+    french: "Talus",
+  },
+  {
+    id: "48",
+    amazigh: "ⴰⴱⴰⴷⴰⵡⵉ",
+    latin: "abadawi",
+    source: "Tawalt (French)",
+    french: "Bédouin",
+  },
+  {
+    id: "49",
+    amazigh: "ⴰⴱⴰⴷⴷⴰⵔ",
+    latin: "abaddar",
+    source: "Tawalt (French)",
+    french: "Arsenal",
+  },
+  // ... more entries
 ];
 
 // Function to search the dictionary by text in any language
@@ -368,6 +431,14 @@ export const searchDictionary = (query: string): DictionaryEntry[] => {
       return true;
     }
     if (entry.category && entry.category.toLowerCase().includes(normalizedQuery)) {
+      return true;
+    }
+    // Check detailed Arabic if available
+    if (entry.detailed_arabic && entry.detailed_arabic.toLowerCase().includes(normalizedQuery)) {
+      return true;
+    }
+    // Check mean_ar if available
+    if (entry.mean_ar && entry.mean_ar.toLowerCase().includes(normalizedQuery)) {
       return true;
     }
     return false;

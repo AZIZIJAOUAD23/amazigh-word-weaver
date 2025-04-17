@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, BookOpen } from "lucide-react";
+import { Search, BookOpen, ArrowDown } from "lucide-react";
 import { DictionaryEntry, searchDictionary } from "@/services/dictionaryService";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -27,7 +27,7 @@ const Dictionary = () => {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto px-4 py-12 min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      <div className="container mx-auto px-4 py-12 min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-white">
         <div className="text-center mb-12 animate-fade-in">
           <h1 className="text-4xl font-bold text-amazigh-dark mb-4 bg-clip-text text-transparent bg-gradient-to-r from-amazigh-primary to-purple-600">
             قاموس اللغة الأمازيغية
@@ -73,9 +73,9 @@ const Dictionary = () => {
               >
                 <div className="flex justify-between items-center mb-3">
                   <div className="amazigh-text flex-grow">{entry.amazigh}</div>
-                  {(entry.type || entry.category) && (
+                  {(entry.category || entry.type) && (
                     <span className="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded-full group-hover:bg-purple-200 transition-colors">
-                      {entry.type || entry.category}
+                      {entry.category || entry.type}
                     </span>
                   )}
                 </div>
@@ -83,6 +83,20 @@ const Dictionary = () => {
                 {entry.latin && <div className="text-sm text-gray-500 mb-2">{entry.latin}</div>}
                 
                 <div className="h-px bg-gray-100 my-3"></div>
+                
+                {entry.construct && (
+                  <div className="mb-2">
+                    <span className="text-xs text-gray-500 ml-2">التصريف:</span>
+                    <div className="amazigh-text text-sm">{entry.construct}</div>
+                  </div>
+                )}
+                
+                {entry.plural && (
+                  <div className="mb-2">
+                    <span className="text-xs text-gray-500 ml-2">الجمع:</span>
+                    <div className="amazigh-text text-sm">{entry.plural}</div>
+                  </div>
+                )}
                 
                 {entry.french && (
                   <div className="mb-2 flex items-center">
@@ -95,6 +109,36 @@ const Dictionary = () => {
                   <div className="mb-2 flex items-center direction-rtl">
                     <span className="text-xs text-gray-500 ml-2">🇲🇦</span>
                     <div>{entry.arabic}</div>
+                  </div>
+                )}
+                
+                {entry.mean_ar && (
+                  <div className="mb-2 text-sm text-gray-700 direction-rtl">
+                    <div>{entry.mean_ar}</div>
+                  </div>
+                )}
+                
+                {entry.detailed_arabic && (
+                  <div className="mb-2 text-sm text-gray-700 direction-rtl">
+                    <div>{entry.detailed_arabic}</div>
+                  </div>
+                )}
+                
+                {entry.example && (
+                  <div className="mt-4 pt-3 border-t border-gray-100">
+                    <div className="flex items-center mb-2">
+                      <BookOpen className="w-4 h-4 text-purple-500 mr-2" />
+                      <span className="text-sm font-medium text-gray-700">أمثلة:</span>
+                    </div>
+                    {entry.example.amazigh && (
+                      <div className="amazigh-text text-sm mb-1">{entry.example.amazigh}</div>
+                    )}
+                    {entry.example.french && (
+                      <div className="text-sm text-gray-700 mb-1">{entry.example.french}</div>
+                    )}
+                    {entry.example.arabic && (
+                      <div className="text-sm text-gray-700 direction-rtl">{entry.example.arabic}</div>
+                    )}
                   </div>
                 )}
                 
