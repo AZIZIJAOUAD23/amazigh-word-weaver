@@ -1,3 +1,4 @@
+
 export interface DictionaryEntry {
   id: string;
   amazigh: string;
@@ -23,7 +24,7 @@ export interface DictionaryEntry {
 const dictionaryData: DictionaryEntry[] = [
   {
     id: "1",
-    word: "ⴰ",
+    amazigh: "ⴰ",
     category: "vocatif",
     source: "IRCAM (DGLAi)",
     french: "vocatif",
@@ -36,7 +37,7 @@ const dictionaryData: DictionaryEntry[] = [
   },
   {
     id: "2",
-    word: "ⴰ",
+    amazigh: "ⴰ",
     category: "préposition",
     source: "Msmun",
     french: "vocatif",
@@ -44,7 +45,7 @@ const dictionaryData: DictionaryEntry[] = [
   },
   {
     id: "3",
-    word: "ⴰ",
+    amazigh: "ⴰ",
     category: "vocatif",
     source: "Msmun",
     french: "ce, cet, cette, ces",
@@ -52,84 +53,84 @@ const dictionaryData: DictionaryEntry[] = [
   },
   {
     id: "4",
-    word: "ⴰ",
+    amazigh: "ⴰ",
     latin: "a",
     source: "Tawalt (French)",
     french: "Ce"
   },
   {
     id: "5",
-    word: "ⴰ",
+    amazigh: "ⴰ",
     latin: "a",
     source: "Tawalt (French)",
     french: "Ci"
   },
   {
     id: "6",
-    word: "ⴰ",
+    amazigh: "ⴰ",
     latin: "a",
     source: "Tawalt (French)",
     french: "Que"
   },
   {
     id: "7",
-    word: "ⴰ !",
+    amazigh: "ⴰ !",
     latin: "a !",
     source: "Tawalt (French)",
     french: "Hé!"
   },
   {
     id: "8",
-    word: "ⴰ !",
+    amazigh: "ⴰ !",
     latin: "a !",
     source: "Tawalt (French)",
     french: "Ô !"
   },
   {
     id: "9",
-    word: "ⴰ ⴱⴱⴰⵢ !",
+    amazigh: "ⴰ ⴱⴱⴰⵢ !",
     latin: "a bbay !",
     source: "Tawalt (French)",
     french: "Ô vous !"
   },
   {
     id: "10",
-    word: "ⴰ ⴱⵏⴰⵢ !",
+    amazigh: "ⴰ ⴱⵏⴰⵢ !",
     latin: "a bnay !",
     source: "Tawalt (French)",
     french: "Ô vous !"
   },
   {
     id: "11",
-    word: "ⴰ ⴱⵏⴰⵢ !",
+    amazigh: "ⴰ ⴱⵏⴰⵢ !",
     latin: "a bnay !",
     source: "Tawalt (French)",
     french: "Vous !"
   },
   {
     id: "12",
-    word: "ⴰ ⴳⵉⵏ",
+    amazigh: "ⴰ ⴳⵉⵏ",
     latin: "a gin",
     source: "Tawalt (French)",
     french: "Donc"
   },
   {
     id: "13",
-    word: "ⴰ ⵎⵜⴰⵢ !",
+    amazigh: "ⴰ ⵎⵜⴰⵢ !",
     latin: "a mtay !",
     source: "Tawalt (French)",
     french: "Ô vous !"
   },
   {
     id: "14",
-    word: "ⴰ ⵎⵜⴰⵢ !",
+    amazigh: "ⴰ ⵎⵜⴰⵢ !",
     latin: "a mtay !",
     source: "Tawalt (French)",
     french: "Vous !"
   },
   {
     id: "15",
-    word: "ⴰ/ⴰⴷ",
+    amazigh: "ⴰ/ⴰⴷ",
     category: "démonstratif",
     source: "IRCAM (DGLAi)",
     french: "ce, cet, cette, ces",
@@ -142,21 +143,21 @@ const dictionaryData: DictionaryEntry[] = [
   },
   {
     id: "16",
-    word: "ⴰⴱ ⴰⴽⴽ",
+    amazigh: "ⴰⴱ ⴰⴽⴽ",
     latin: "ab akk",
     source: "Tawalt (French)",
     french: "Afin que"
   },
   {
     id: "17",
-    word: "ⴰⴱ ⴰⴽⴽ",
+    amazigh: "ⴰⴱ ⴰⴽⴽ",
     latin: "ab akk",
     source: "Tawalt (French)",
     french: "Pour que"
   },
   {
     id: "18",
-    word: "ⴰⴱⴰ",
+    amazigh: "ⴰⴱⴰ",
     category: "nom masculin",
     source: "IRCAM (DGLAi)",
     construct: "ⵡⴰⴱⴰ",
@@ -166,7 +167,7 @@ const dictionaryData: DictionaryEntry[] = [
   },
   {
     id: "19",
-    word: "ⴰⴱⴰ",
+    amazigh: "ⴰⴱⴰ",
     category: "nom",
     source: "Msmun",
     construct: "ⴰⴱⴰⵜⵏ / abatn",
@@ -176,7 +177,7 @@ const dictionaryData: DictionaryEntry[] = [
   },
   {
     id: "20",
-    word: "ⴰⴱⴰ",
+    amazigh: "ⴰⴱⴰ",
     source: "Tawalt (Arabic)",
     arabic: "راب",
     mean_ar: "الرَّابُّ، زَوْجُ الأم"
@@ -191,7 +192,7 @@ export const searchDictionary = (query: string): DictionaryEntry[] => {
   
   return dictionaryData.filter((entry) => {
     // Check in Amazigh text
-    if (entry.amazigh.toLowerCase().includes(normalizedQuery)) {
+    if (entry.amazigh && entry.amazigh.toLowerCase().includes(normalizedQuery)) {
       return true;
     }
     // Check in Latin transliteration
@@ -238,7 +239,7 @@ export const getSuggestions = (partial: string, limit: number = 5): string[] => 
   
   const matches = dictionaryData
     .filter(entry => 
-      entry.amazigh.toLowerCase().includes(normalizedPartial) || 
+      (entry.amazigh && entry.amazigh.toLowerCase().includes(normalizedPartial)) || 
       (entry.latin && entry.latin.toLowerCase().includes(normalizedPartial)) ||
       (entry.french && entry.french.toLowerCase().includes(normalizedPartial)) ||
       (entry.arabic && entry.arabic.toLowerCase().includes(normalizedPartial))
